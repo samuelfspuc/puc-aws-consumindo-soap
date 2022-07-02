@@ -14,28 +14,6 @@ namespace Puc.Aws.Samuel.Web.Controllers
             _logger = logger;
         }
 
-        //public IActionResult Index()
-        //{
-        //    try
-        //    {
-        //        var soapCliente = new SOAPDemoSoapClient();
-        //        var resultadoWebService = soapCliente.GetListByNameAsync(string.Empty).Result;
-        //        var resultadoViewModel = resultadoWebService
-        //                                    .Select(x =>
-        //                                    new GetListByNameViewModel(x.ID, x.Name, x.SSN, x.DOB.ToString("dd/MM/yyyy")))
-        //                                    .OrderBy(x => x.Id)
-        //                                    .ToList();
-
-        //        return View(resultadoViewModel);
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ViewBag.MsgErro = ex.Message;
-
-        //        return View(new List<GetListByNameViewModel>());
-        //    }
-        //}
 
         [HttpGet]
         public ActionResult Index(string nome)
