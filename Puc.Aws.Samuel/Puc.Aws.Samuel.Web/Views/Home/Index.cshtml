@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+    
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-4">Página Inicial - Escolha as funcionalidades abaixo:</h1>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <input type="button" class="btn btn-primary" value="Add Integer" onclick="location.href='@Url.Action("Index", "AddInteger")'" />
+        </div>
+    </div>
+    <div class="row mt-1">
+        <div class="col">
+            <input type="button" class="btn btn-primary" value="Get List By Name" onclick="location.href='@Url.Action("Index", "GetListByName")'" />
+        </div>
+    </div>
+    <div class="row mt-1">
+        <div class="col">
+            <input type="button" class="btn btn-primary" value="Divide Integer" onclick="location.href='@Url.Action("Index", "DivideInteger")'" />
+        </div>
+    </div>
+</div>
+
+

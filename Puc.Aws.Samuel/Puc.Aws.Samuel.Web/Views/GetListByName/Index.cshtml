@@ -1,0 +1,83 @@
+﻿
+@model IEnumerable<Puc.Aws.Samuel.Web.Models.GetListByNameViewModel>
+@{
+    ViewData["Title"] = "Funcionalidade do Web Service - Get List ByName";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+
+<div class="container">
+    @if (!string.IsNullOrWhiteSpace(ViewBag.MsgErro))
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewBag.MsgErro
+        </div> 
+    }
+
+    <div class="row">
+        <div class="col">
+            <input id="txtPesquisarId" type="text" class="form-control" placeholder="Informe o nome para pesquisar..">
+        </div>
+        <div class="col">
+            <input id="btnPesquisarId" type="button" class="btn btn-success mb-2" value="Filtrar">
+        </div>
+    </div>
+
+    <hr />
+    
+    <div class="form-group row">
+
+        <table class="table" id="tblPessoas">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ssn)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Dob)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ssn)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dob)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript" language="javascript">
+    $(document).ready(function(){        
+    $("#btnPesquisarId").click(function(event){
+       event.preventDefault();
+       window.location.href = "@Url.Action("Index", "GetListByName")" + "?nome=" + $("#txtPesquisarId").val();
+    });
+})
+</script>
